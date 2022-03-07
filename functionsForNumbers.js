@@ -1,13 +1,16 @@
 const ERROR_MESSAGE = 'Некорректный ввод!';
 
 const getNumber = (order) => {
-	let number = prompt(`Введите ${order} число: `);
-	return number && Number(number);
+	let number = prompt(`Введите ${order} число:`);
+	if (number && number !== '') {
+		return Number(number);
+	}
+	return NaN;
 }
 
 const printError = () => {
 	console.log(ERROR_MESSAGE);
-	return;
+	return false;
 }
 
 const isValid = (number) => {
@@ -39,7 +42,7 @@ const addAndDivide = () => {
 	if (!isValid(secondNumber)) {
 		return;
 	}
-	
+
 	console.log(`Ответ: ${firstNumber + secondNumber}, ${firstNumber / secondNumber}.`);
 }
 
