@@ -1,47 +1,47 @@
 const ERROR_MESSAGE = 'Некорректный ввод!';
 
 const getNumber = (order) => {
-	const number = prompt(`Введите ${order} число:`);
+  сonst number = prompt(`Введите ${order} число:`);
 
-	if (!number) {
-		return NaN;
-	}
+  if (!number) {
+    return NaN;
+  }
 
-	return Number(number);
+  return Number(number);
 }
 
 const printError = () => {
-	console.log(ERROR_MESSAGE);
-	return false;
+  console.log(ERROR_MESSAGE);
+  return false;
 }
 
 const isValid = (number) => {
-	if (isNaN(number)) {
-		return printError();
-	}
-	return true;
+  if (isNaN(number)) {
+    return printError();
+  }
+  return true;
 }
 
 const numberToBase = () => {
-	const firstNumber = getNumber('первое');
-	const secondNumber = getNumber('второе');
-	const IS_VALID = !isNaN(firstNumber) && !isNaN(secondNumber) && secondNumber >= 2 && secondNumber <= 10;
+  const firstNumber = getNumber('первое');
+  const secondNumber = getNumber('второе');
+  const IS_VALID = !isNaN(firstNumber) && !isNaN(secondNumber) && secondNumber >= 2 && secondNumber <= 10;
 
-	if (!IS_VALID) {
-		return printError();
-	}
+  if (!IS_VALID) {
+    return printError();
+  }
 
-	console.log(firstNumber.toString(secondNumber));
+  console.log(firstNumber.toString(secondNumber));
 }
 
 const addAndDivide = () => {
-	const firstNumber = getNumber('первое');
-	const secondNumber = getNumber('второе');
-	if (!isValid(firstNumber) || !isValid(secondNumber)) {
-		return;
-	}
+  const firstNumber = getNumber('первое');
+  const secondNumber = getNumber('второе');
+  if (!isValid(firstNumber) || !isValid(secondNumber)) {
+    return;
+  }
 
-	console.log(`Ответ: ${firstNumber + secondNumber}, ${firstNumber / secondNumber}.`);
+  console.log(`Ответ: ${firstNumber + secondNumber}, ${firstNumber / secondNumber}.`);
 }
 
 document.querySelector('#base').addEventListener('click', numberToBase);
