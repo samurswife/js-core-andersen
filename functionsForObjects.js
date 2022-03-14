@@ -45,7 +45,6 @@ let myIterable = {
 
     return {
       next() {
-
         if (currentValue > lastValue) {
           return { done: true };
         }
