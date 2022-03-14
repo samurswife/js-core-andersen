@@ -26,10 +26,10 @@ const selectFromInterval = (arrayOfNumbers, firstOfInterval, lastOfInterval) => 
   };
   
   if (firstOfInterval < lastOfInterval) {
-    return arrayOfNumbers.filter((item) => item >= firstOfInterval && item <= lastOfInterval)
+    return arrayOfNumbers.filter((item) => item >= firstOfInterval && item <= lastOfInterval);
   }
 
-  return arrayOfNumbers.filter((item) => item <= firstOfInterval && item >= lastOfInterval)
+  return arrayOfNumbers.filter((item) => item <= firstOfInterval && item >= lastOfInterval);
 }
 
 let myIterable = {
@@ -51,8 +51,8 @@ let myIterable = {
 
         const result = {
           value: currentValue,
-          done: false
-        }
+          done: false,
+        };
 
         currentValue++;
 
