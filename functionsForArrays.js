@@ -32,7 +32,11 @@ function myMap(callback, context) {
 
 function myForEach(callback, context) {
   for (let i = 0; i < this.length; i++) {
-    callback.call(context, this[i], i, this);
+    const element = this[i];
+    const index = i;
+    const array = this;
+
+    callback.call(context, element, index, array);
   }
 }
 
