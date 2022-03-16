@@ -1,1 +1,1 @@
-# JS-интенсив Anderser
+# JS-интенсив Andersen
