@@ -9,19 +9,20 @@ const makeObjectDeepCopy = (obj) => {
 
   const copiedObject = Array.isArray(obj) ? [...obj] : { ...obj };
 
-  for (let key in obj) {
+  Object.keys(obj).forEach((key) => {
     if (typeof obj[key] === 'object') {
       copiedObject[key] = makeObjectDeepCopy(obj[key]);
     }
-  }
+  })
 
   return copiedObject;
 };
 
 const selectFromInterval = (arrayOfNumbers, firstOfInterval, lastOfInterval) => {
   const isArrayValid = Array.isArray(arrayOfNumbers) && arrayOfNumbers.every((item) => typeof item === 'number');
+  const isArgemuntsValid = isArrayValid && typeof firstOfInterval === 'number' && typeof lastOfInterval === 'number';
 
-  if (!isArrayValid || typeof firstOfInterval !== 'number' || typeof lastOfInterval !== 'number') {
+  if (!isArgemuntsValid ) {
     throw new Error('Ошибка!');
   };
   
@@ -38,8 +39,9 @@ let myIterable = {
   [Symbol.iterator]() {
     let currentValue = this.from;
     const lastValue = this.to;
+    const isObjectDataValid = typeof this.from === 'number' && typeof this.to === 'number' && this.to > this.from;
 
-    if (!this.from || !this.to || typeof this.from !== 'number' || typeof this.to !== 'number' || this.to < this.from) {
+    if (!isObjectDataValid) {
       throw new Error('Ошибка!');
     }
 
